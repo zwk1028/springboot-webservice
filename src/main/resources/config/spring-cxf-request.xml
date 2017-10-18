@@ -6,6 +6,6 @@
  http://cxf.apache.org/jaxws 
  http://cxf.apache.org/schemas/jaxws.xsd">
 	<!-- 邮件客户端webservice -->
-	<jaxws:client id="helloworldlClient" serviceClass="demo.spring.service.Helloworld" address="http://localhost:8080/ws/helloworld_ws">
-	</jaxws:client>
+	<!-- <jaxws:client id="helloworldlClient" serviceClass="demo.spring.service.Helloworld" address="http://localhost:8080/ws/helloworld_ws">
+	</jaxws:client> -->
 </beans>

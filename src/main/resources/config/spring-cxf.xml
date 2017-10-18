@@ -8,21 +8,5 @@
 	<!-- helloworld webservice接口 -->
 	<jaxws:endpoint id="helloWebservice"
 		implementor="demo.spring.service.HelloWorldImpl" address="/helloworld_ws">
-		<jaxws:inInterceptors>
-    		<ref bean="wss4jInInterceptor"/>
-    	</jaxws:inInterceptors>
 	</jaxws:endpoint>
-	
-	<!-- 定义安全校验器 -->
-	<bean id="wss4jInInterceptor" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
-       	<constructor-arg>
-            <map>
-               <entry key="action" value="UsernameToken"/>
-               <entry key="passwordType" value="PasswordText"/>
-               <!-- <entry key="signaturePropFile" value="..."/> -->
-               <entry key="user" value="luoshengsha"/>
-               <entry key="passwordCallbackClass" value="demo.spring.service.ServerPasswordCallback"/>
-            </map>
-       	</constructor-arg>
-    </bean>
 </beans>
