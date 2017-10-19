@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
  http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+ http://cxf.apache.org/jaxrs
+ http://cxf.apache.org/schemas/jaxrs.xsd
  http://cxf.apache.org/jaxws
  http://cxf.apache.org/schemas/jaxws.xsd">
 	<!-- helloworld webservice接口 -->
-	<jaxws:endpoint id="helloWebservice"
-		implementor="demo.spring.service.HelloWorldImpl" address="/helloworld_ws">
+	<jaxws:endpoint id="helloWebservice" implementor="demo.spring.service.HelloWorldImpl"
+		address="/helloworld_ws">
 	</jaxws:endpoint>
+
+	<jaxrs:server id="sayRestHiService" address="/sayHi_rs">
+		<jaxrs:serviceBeans>
+			<ref bean="sayHiImpl" />
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<bean class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
+		</jaxrs:providers>
+	</jaxrs:server>
 </beans>

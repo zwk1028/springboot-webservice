@@ -9,6 +9,4 @@ public class HelloWorldImpl implements HelloWorld {
 		System.out.println("sayHi called");
 		return "Hello " + text;
 	}
-
-
 }
